@@ -2,3 +2,8 @@
     Gradle 就是一个自动化的项目构建工具，用来帮助我们自动构建项目。
 2、查看Gradle版本
     gradle -v
+3、常用命令
+    gradle tasks ：查看任务
+    gradle dependencies : 查看依赖
+    gradle --profile build : 分析项目构建
+    gradle clean build -x 任务名 ： 排除x任务执行
