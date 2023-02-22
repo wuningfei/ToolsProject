@@ -1,4 +1,5 @@
 # ToolsProject
 tools repository
-# Git 
-# Maven
+# root
+    git : code control path
+    gradle: build code tool path
