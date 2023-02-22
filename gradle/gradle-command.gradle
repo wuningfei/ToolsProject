@@ -1,0 +1,4 @@
+1、Gradle定义
+    Gradle 就是一个自动化的项目构建工具，用来帮助我们自动构建项目。
+2、查看Gradle版本
+    gradle -v
