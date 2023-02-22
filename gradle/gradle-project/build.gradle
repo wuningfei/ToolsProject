@@ -3,3 +3,20 @@ task hello {
         println 'Hello world!'
     }
 }
+
+task test (dependsOn : hello) {
+    doLast {
+        println '------------------'
+    }
+}
+
+task logTest{
+    doLast{
+        logger.debug("This is Debug Log Message")
+        logger.info("This is Info Log Message")
+        logger.warn("This is Warn Log Message")
+        logger.lifecycle("This is Lifecycle Log Message")
+        logger.quiet("This is Quiet Log Message")
+        logger.error("This is Erroe Log Message")
+    }
+}
