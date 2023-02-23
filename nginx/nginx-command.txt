@@ -1,0 +1,45 @@
+Nginx知识点
+    1、定义
+        开源以及高性能的HTTP和反向代理的WEB服务器，常见的WEB服务器有：Apache、Nginx以及Tomcat。
+    2、使用场景
+        HTTP服务器
+        反向代理
+        负载均衡
+        第三方插件
+    3、作用
+        高性能、高稳定、低资源消耗
+        热部署
+        高可扩展性
+        开源免费
+    4、常用命令
+        start nginx : 启动
+        nginx -s stop/quit : 停止
+        nginx -s reload : 重新加载配置文件
+        nginx -v/V : 查看版本
+    5、Nginx部署SpringBoot项目（https://blog.csdn.net/weixin_44471080/article/details/124871186）
+        1、构建Jar包
+        2、启动Nginx
+        3、修改Nginx配置文件
+            server {
+                    listen       8086; //Nginx监听接口
+                    server_name  localhost;
+
+                    #charset koi8-r;
+
+                    #access_log  logs/host.access.log  main;
+
+                    #location / {
+                     #   root   html;
+                     #   index  index.html index.htm;
+                    #}
+                    location / {
+                            proxy_pass http://127.0.0.1:8080; //后端ip+端口
+                            proxy_redirect off;
+                            proxy_set_header     Host              $http_host;
+                            proxy_set_header     X-Real-IP         $remote_addr;
+                            proxy_set_header     X-Forwarded-For   $proxy_add_x_forwarded_for;
+                            proxy_set_header     X-Forwarded-Proto $scheme;
+                        }
+                    }
+        4、使用代理服务访问
+             http://Nginx代理IP:监听接口
